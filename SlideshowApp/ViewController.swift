@@ -29,6 +29,14 @@ class ViewController: UIViewController {
         
         //初期画面設定
         slideshowImage.image = UIImage(named: "photo1.JPG")
+        
+        // スライドショーシングルタップ時のイベント追加
+        let slideTapEvent: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.slideTapEvent(_:)))
+        // イベントが入ったUITapGestureRecognizerをインスタンス化
+        self.slideshowImage.addGestureRecognizer(slideTapEvent)
+        // タップを検知
+        self.slideshowImage.isUserInteractionEnabled = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +76,7 @@ class ViewController: UIViewController {
         }
 
     }
+    
     @IBAction func returnButton(_ sender: Any) {
         if(play == false){//スライドショー起動していない時のみ有効
             if(img_num > 0){
@@ -97,5 +106,29 @@ class ViewController: UIViewController {
         img_num = (timer_sec / 2) % 3
         slideshowImage.image = UIImage(named: imgs[img_num])
     }
+    
+    
+    // Segue画面遷移
+    func segueToResultViewController() {
+        //StoryBoardで設定したSegueIDで画面を遷移させる
+        self.performSegue(withIdentifier: "Zoom", sender: self)
+    }
+    
+    // 画面遷移先への値受け渡し
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! ZoomViewController
+        nextViewController.img_num = self.img_num
+    }
+
+    
+    // タップイベント
+    func slideTapEvent(_ sender: UITapGestureRecognizer){
+        segueToResultViewController()
+    }
+    
+    @IBAction func backWithSegue(segue: UIStoryboardSegue) {
+        // 遷移先から戻る
+    }
+
 }
 

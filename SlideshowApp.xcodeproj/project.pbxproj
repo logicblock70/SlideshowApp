@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1356BA201E5A864700F0CC55 /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356BA1F1E5A864700F0CC55 /* ZoomViewController.swift */; };
 		136517501E5950160012912F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1365174F1E5950160012912F /* AppDelegate.swift */; };
 		136517521E5950160012912F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136517511E5950160012912F /* ViewController.swift */; };
 		136517551E5950160012912F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136517531E5950160012912F /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1356BA1F1E5A864700F0CC55 /* ZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
 		1365174C1E5950160012912F /* SlideshowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideshowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1365174F1E5950160012912F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136517511E5950160012912F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				1365174F1E5950160012912F /* AppDelegate.swift */,
 				136517511E5950160012912F /* ViewController.swift */,
+				1356BA1F1E5A864700F0CC55 /* ZoomViewController.swift */,
 				136517531E5950160012912F /* Main.storyboard */,
 				136517561E5950160012912F /* Assets.xcassets */,
 				1365177D1E5951220012912F /* photo1.JPG */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				136517521E5950160012912F /* ViewController.swift in Sources */,
+				1356BA201E5A864700F0CC55 /* ZoomViewController.swift in Sources */,
 				136517501E5950160012912F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +519,7 @@
 				136517761E5950160012912F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		136517771E5950160012912F /* Build configuration list for PBXNativeTarget "SlideshowAppTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				136517791E5950160012912F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1365177A1E5950160012912F /* Build configuration list for PBXNativeTarget "SlideshowAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +537,7 @@
 				1365177C1E5950160012912F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

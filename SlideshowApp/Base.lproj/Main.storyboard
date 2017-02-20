@@ -57,11 +57,48 @@
                         <outlet property="returnButtonLabel" destination="vwa-gM-gdD" id="cDg-Br-uA2"/>
                         <outlet property="slideshowButtonLabel" destination="9Z1-rG-zw9" id="Bne-xv-epw"/>
                         <outlet property="slideshowImage" destination="KPT-0O-Wad" id="0ip-qc-7ca"/>
+                        <segue destination="Lc4-nQ-Cih" kind="show" identifier="Zoom" id="Puc-0j-TmV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Zoom View Controller-->
+        <scene sceneID="7rS-Ko-JXv">
+            <objects>
+                <viewController id="Lc4-nQ-Cih" customClass="ZoomViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ndf-cH-KNc"/>
+                        <viewControllerLayoutGuide type="bottom" id="bJL-kw-jCf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HBd-3G-tt4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9aZ-eE-oED">
+                                <rect key="frame" x="16" y="28" width="343" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-RA-ZDO">
+                                <rect key="frame" x="172" y="458" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="yjV-rz-eQv" kind="unwind" unwindAction="backWithSegueWithSegue:" id="6NJ-vf-IgO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="zoomImageView" destination="9aZ-eE-oED" id="SPf-2N-XiU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rny-hS-siV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yjV-rz-eQv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="885.60000000000002" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
