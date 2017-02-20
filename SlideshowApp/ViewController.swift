@@ -11,9 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var slideshowImage: UIImageView!        //スライドショー画像
-    @IBOutlet weak var slideshowButtonLabel: UIButton!
-    @IBOutlet weak var returnButtonLabel: UIButton!
-    @IBOutlet weak var nextButtonLabel: UIButton!
+    @IBOutlet weak var slideshowButtonLabel: UIButton!     //再生/停止ボタン
+    @IBOutlet weak var returnButtonLabel: UIButton!        //戻るボタン
+    @IBOutlet weak var nextButtonLabel: UIButton!          //進むボタン
 
     var img_num = 0         //表示画像の格納位置
     var timer: Timer!       //タイマー
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     @IBAction func slideshowButton(_ sender: Any) {
         // 再生ボタンを押すとタイマー作成、始動
         if(play == true){
-            play = false
+            play = false              // スライドショーを停止する
             self.timer.invalidate()   // 現在のタイマーを破棄する
             timer = nil
             // 再生ボタンに名前変更
@@ -60,9 +60,10 @@ class ViewController: UIViewController {
             returnButtonLabel.alpha = 1.0
 
         } else {
-            if self.timer == nil {
+            if self.timer == nil { //タイマーを新たに生成
                 self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             }
+            // スライドショーを再生する
             play = true
             // 停止ボタンに名前変更
             slideshowButtonLabel.setTitle("停止", for: .normal)
@@ -78,11 +79,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func returnButton(_ sender: Any) {
-        if(play == false){//スライドショー起動していない時のみ有効
-            if(img_num > 0){
+        if(play == false){ //スライドショー起動していない時のみ有効
+            if(img_num > 0){ //1つ前の画像を表示
                 img_num -= 1
                 slideshowImage.image = UIImage(named: imgs[img_num])
-            } else if (img_num == 0 ) {
+            } else if (img_num == 0 ) { //最初の画像の場合
+                //一番最後の画像を表示
                 img_num = imgs.count - 1
                 slideshowImage.image = UIImage(named: imgs[img_num])
             }
@@ -91,16 +93,18 @@ class ViewController: UIViewController {
 
     @IBAction func nextButton(_ sender: Any) {
         if(play == false){ //スライドショー起動していない時のみ有効
-            if(img_num < imgs.count-1){
+            if(img_num < imgs.count-1){//次の画像を表示
                 img_num += 1
                 slideshowImage.image = UIImage(named: imgs[img_num])
-            } else if (img_num == imgs.count-1 ) {
+            } else if (img_num == imgs.count-1 ) {//最後の画像の場合
+                //一番最初の画像を表示
                 img_num = 0
                 slideshowImage.image = UIImage(named: imgs[img_num])
             }
         }
     }
     
+    // 2秒ごとにスライドショーを更新する
     func updateTimer(timer: Timer){
         self.timer_sec += 2
         img_num = (timer_sec / 2) % 3

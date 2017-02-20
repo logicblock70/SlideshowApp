@@ -10,14 +10,14 @@ import UIKit
 
 class ZoomViewController: UIViewController {
     
-    var img_num = 0
-    //ファイル名
-    var imgs : [String] = ["photo1.JPG","photo2.JPG","photo3.JPG"]
-    @IBOutlet weak var zoomImageView: UIImageView!
+    var img_num = 0                                                 //画像表示位置を示す変数
+    var imgs : [String] = ["photo1.JPG","photo2.JPG","photo3.JPG"]  //ファイル名
+    @IBOutlet weak var zoomImageView: UIImageView!                  //拡大画像表示用ビュー
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // スライドショー画面でタップされた画像を表示
         zoomImageView.image = UIImage(named: imgs[img_num])
 
         // Do any additional setup after loading the view.
