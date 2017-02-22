@@ -127,6 +127,21 @@ class ViewController: UIViewController {
     
     // タップイベント
     func slideTapEvent(_ sender: UITapGestureRecognizer){
+        if(play == true){// 画像拡大画面へ遷移する場合
+            play = false              // スライドショーを停止する
+            self.timer.invalidate()   // 現在のタイマーを破棄する
+            timer = nil
+            // 再生ボタンに名前変更
+            slideshowButtonLabel.setTitle("再生", for: .normal)
+            // 進む、戻るボタン無効
+            nextButtonLabel.isEnabled = true
+            returnButtonLabel.isEnabled = true
+            //　進む、戻るボタン半透明から戻す
+            nextButtonLabel.alpha = 1.0
+            returnButtonLabel.alpha = 1.0
+            
+        }
+        // 画像拡大画面へ遷移
         segueToResultViewController()
     }
     
