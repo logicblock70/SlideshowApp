@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 
     var img_num = 0         //表示画像の格納位置
     var timer: Timer!       //タイマー
-    var timer_sec:Int = 0   //秒数カウント
     var play:Bool = false   //スライドショーオンオフ切り替え用変数
     
     //ファイル名
@@ -106,9 +105,14 @@ class ViewController: UIViewController {
     
     // 2秒ごとにスライドショーを更新する
     func updateTimer(timer: Timer){
-        self.timer_sec += 2
-        img_num = (timer_sec / 2) % 3
-        slideshowImage.image = UIImage(named: imgs[img_num])
+        if(img_num < imgs.count-1){//次の画像を表示
+            img_num += 1
+            slideshowImage.image = UIImage(named: imgs[img_num])
+        } else if (img_num == imgs.count-1 ) {//最後の画像の場合
+            //一番最初の画像を表示
+            img_num = 0
+            slideshowImage.image = UIImage(named: imgs[img_num])
+        }
     }
     
     
